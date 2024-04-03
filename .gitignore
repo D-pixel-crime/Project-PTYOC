@@ -9,6 +9,9 @@
 # testing
 /coverage
 
+# vscode settings
+/.vscode
+
 # environments
 /.env
 
