@@ -13,7 +13,8 @@ const Sidebar = () => {
       <div className="flex flex-col gap-6">
         {sideBarLinks.map((eachLink) => {
           const isActive =
-            pathname === eachLink.route || pathname.startsWith(eachLink.route);
+            pathname === eachLink.route ||
+            pathname.startsWith(`${eachLink.route}/`);
 
           return (
             <Link

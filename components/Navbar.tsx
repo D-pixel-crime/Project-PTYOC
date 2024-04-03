@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav className="flex-between fixed z-50 w-full bg-dark-1 px-6 py-4 lg:px-10">
       <Link href="/" className="flex items-center gap-1">
         <Image
-          src="/icons/webcam.svg"
+          src="/icons/logo.svg"
           width={32}
           height={32}
           alt="Logo"
