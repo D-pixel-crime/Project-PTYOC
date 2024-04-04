@@ -77,8 +77,13 @@
 }
 
 
+.glassmorphism {
+  background: rgba(98, 94, 94, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
 
-/* @layer base {
+@layer base {
   * {
     @apply border-border;
   }
@@ -95,7 +100,7 @@
 }
 
 /* ======== stream css overrides ======== */
-/* .str-video__call-stats {
+.str-video__call-stats {
   max-width: 500px;
   position: relative;
 }
@@ -128,11 +133,6 @@
   height: 40px;
 }
 
-.glassmorphism {
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-}
 
 .glassmorphism2 {
   background: rgba(18, 17, 17, 0.25);
@@ -142,7 +142,7 @@
 
 /* ==== clerk class override ===== */
 
-/* .cl-userButtonPopoverActionButtonIcon {
+.cl-userButtonPopoverActionButtonIcon {
   color: white;
 }
 
@@ -165,11 +165,11 @@
 
 .cl-userButtonPopoverActionButton {
   color: white;
-} */
+}
 
 /* =============================== */
 
-/* @layer utilities {
+@layer utilities {
   .flex-center {
     @apply flex justify-center items-center;
   }
@@ -177,10 +177,9 @@
   .flex-between {
     @apply flex justify-between items-center;
   }
-} */
+}
 
 /* animation */
-/* 
 .show-block {
   width: 100%;
   max-width: 350px;
@@ -198,4 +197,4 @@
     animation-timing-function: ease-in;
     width: 100%;
   }
-} */
+}

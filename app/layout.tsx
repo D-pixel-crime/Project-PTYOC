@@ -34,6 +34,10 @@ export default function RootLayout({
           variables: {
             colorBackground: "#3c2559",
           },
+          layout: {
+            logoImageUrl: "/icons/logo.svg",
+            logoPlacement: "outside",
+          },
         }}
       >
         <body className={`${inter.className} bg-black`}>{children}</body>
