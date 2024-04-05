@@ -1,3 +1,5 @@
+import OptionsMeetingTypes from "@/components/OptionsMeetingTypes";
+
 const Home = () => {
   const current = new Date();
   const timeNow = current.toLocaleTimeString("en-US", {
@@ -27,6 +29,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <OptionsMeetingTypes />
     </section>
   );
 };
