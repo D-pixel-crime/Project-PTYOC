@@ -76,6 +76,10 @@
   }
 }
 
+.scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 
 .glassmorphism {
   background: rgba(98, 94, 94, 0.25);

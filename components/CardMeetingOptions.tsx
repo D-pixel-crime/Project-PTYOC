@@ -2,19 +2,27 @@
 
 import Image from "next/image";
 
+interface cardProps {
+  option: string;
+  title: string;
+  description: string;
+  handleClick: () => void;
+  cardColor: string;
+}
+
 const CardMeetingOptions = ({
   option,
   title,
   description,
   handleClick,
-}: {
-  option: String;
-  title: String;
-  description: String;
-  handleClick: Function;
-}) => {
+  cardColor,
+}: cardProps) => {
   return (
-    <div className="bg-orange-500 px-4 py-6 w-full xl:max-w-[270px] min-h-[260px] rounded-lg cursor-pointer flex flex-col justify-between">
+    <div
+      className={`px-4 py-6 w-full xl:max-w-[270px] min-h-[260px] rounded-lg cursor-pointer flex flex-col justify-between hover:scale-105 transition-transform`}
+      style={{ backgroundColor: cardColor }}
+      onClick={handleClick}
+    >
       <div className="flex-center glassmorphism size-12 rounded-md">
         <Image
           src={`icons/${option}.svg`}
