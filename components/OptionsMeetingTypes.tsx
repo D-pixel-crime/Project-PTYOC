@@ -4,14 +4,73 @@ import { useState } from "react";
 import CardMeetingOptions from "./CardMeetingOptions";
 import { useRouter } from "next/navigation";
 import MeetingModal from "./modals/MeetingModal";
+import { useUser } from "@clerk/nextjs";
+import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
+import { useToast } from "./ui/use-toast";
 
 const OptionsMeetingTypes = () => {
   const [meetingState, setMeetingState] = useState<
     "isSchedule" | "isJoinExistingMeeting" | "isStartMeeting" | undefined
   >();
   const router = useRouter();
+  const { user } = useUser();
+  const client = useStreamVideoClient();
+  const [info, setInfo] = useState({
+    dateTime: new Date(),
+    description: "",
+    link: "",
+  });
+  const [callDetails, setCallDetails] = useState<Call>();
+  const { toast } = useToast();
 
-  const createMeeting = () => {};
+  const createMeeting = async () => {
+    if (!client || !user) return;
+
+    const callId = crypto.randomUUID();
+
+    const call = client.call("default", callId);
+
+    if (!call) throw new Error("New call couldn't created !");
+
+    try {
+      if (!info.dateTime) {
+        toast({
+          variant: "destructive",
+          title: "Please select a date and time !",
+        });
+        return;
+      }
+
+      const callStartAt =
+        info.dateTime.toISOString() || new Date(Date.now()).toISOString();
+      const description = info.description || "New Quick Meeting";
+
+      await call.getOrCreate({
+        data: {
+          starts_at: callStartAt,
+          custom: {
+            description,
+          },
+        },
+      });
+
+      setCallDetails(call);
+
+      if (!info.description) {
+        router.push(`/meeting/call${call.id}`);
+      }
+
+      toast({
+        title: "Meeting created successfully !",
+      });
+    } catch (error) {
+      console.log(error);
+      toast({
+        variant: "destructive",
+        title: "Meeting couldn't be created !",
+      });
+    }
+  };
 
   return (
     <section className="w-full grid grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-4">
