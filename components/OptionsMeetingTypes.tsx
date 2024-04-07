@@ -57,7 +57,7 @@ const OptionsMeetingTypes = () => {
       setCallDetails(call);
 
       if (!info.description) {
-        router.push(`/meeting/call${call.id}`);
+        router.push(`/meeting/${call.id}`);
       }
 
       toast({

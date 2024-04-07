@@ -1,3 +1,5 @@
+// this could also be just written in the request file, but learning custom-hooks
+
 import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 import { useEffect, useState } from "react";
 
@@ -11,15 +13,20 @@ export const useGetCallById = (id: string | string[]) => {
     if (!client) return;
 
     const loadCall = async () => {
-      const { calls } = await client.queryCalls({
-        filter_conditions: {
-          id,
-        },
-      });
+      try {
+        const { calls } = await client.queryCalls({
+          filter_conditions: {
+            id,
+          },
+        });
 
-      if (calls.length > 0) setCurrentLiveCall(calls[0]);
+        if (calls.length > 0) setCurrentLiveCall(calls[0]);
+        console.log(calls);
 
-      setIsCallLoading(false);
+        setIsCallLoading(false);
+      } catch (error) {
+        throw new Error(`${error}`);
+      }
     };
 
     loadCall();

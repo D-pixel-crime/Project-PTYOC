@@ -19,7 +19,11 @@ const Meeting = ({ params: { id } }: { params: { id: string } }) => {
     <main className="w-full h-screen">
       <StreamCall call={currentLiveCall}>
         <StreamTheme>
-          {!isAudioVideoSetupDone ? <MeetingSetup /> : <MeetingRoom />}
+          {!isAudioVideoSetupDone ? (
+            <MeetingSetup setIsAudioVideoSetupDone={setIsAudioVideoSetupDone} />
+          ) : (
+            <MeetingRoom />
+          )}
         </StreamTheme>
       </StreamCall>
     </main>
