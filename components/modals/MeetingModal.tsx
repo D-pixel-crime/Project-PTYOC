@@ -41,7 +41,7 @@ const MeetingModal = ({
         <div className="flex flex-col gap-6">
           {img && (
             <div className="flex justify-center">
-              <Image src="img" alt="Image" width={72} height={72} />
+              <Image src={img} alt="Image" width={72} height={72} />
             </div>
           )}
           <h1 className={`text-3xl font-bold leading-[42px] ${className}`}>
