@@ -112,6 +112,7 @@ const OptionsMeetingTypes = () => {
           onClose={() => setMeetingState(undefined)}
           title="Schedule a Meeting"
           handleClick={createMeeting}
+          className="w-full"
         >
           <div className="flex flex-col gap-2.5">
             <label className="text-base text-normal leading-[22px] text-white">

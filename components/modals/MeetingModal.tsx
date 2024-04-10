@@ -37,7 +37,7 @@ const MeetingModal = ({
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogTrigger>Open</DialogTrigger>
-      <DialogContent className="flex w-full max-w-[520px] px-6 py-9 text-white bg-dark-1">
+      <DialogContent className="flex w-fit px-6 py-9 text-white bg-dark-1">
         <div className="flex flex-col gap-6">
           {img && (
             <div className="flex justify-center">
