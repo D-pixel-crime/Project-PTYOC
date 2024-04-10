@@ -4,6 +4,7 @@ import { useAllCalls } from "@/customHooks/useAllCalls";
 import { Call, CallRecording } from "@stream-io/video-react-sdk";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import CardMeeting from "./CardMeeting";
 
 const CommonCallsLayout = ({
   type,
@@ -28,8 +29,9 @@ const CommonCallsLayout = ({
       default:
         return [];
     }
-  
-    const noCalls = () => {
+  };
+
+  const noCalls = () => {
     switch (type) {
       case "previous":
         return "No Previous Meetings";
@@ -48,8 +50,18 @@ const CommonCallsLayout = ({
   const calls = getCalls();
   const noCallsMessage = noCalls();
 
-  return <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
-    {calls && calls.length > 0?calls.map((meeting:Call | CallRecording)=><CardMeeting />:<h1>{noCallsMessage}</h1>)}
-  </div>
+  return (
+    <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
+      {/* {calls && calls.length > 0 ? (
+        calls.map((meeting: Call | CallRecording) => <CardMeeting />)
+      ) : (
+        <h1>{noCallsMessage}</h1>
+      )} */}
+      <CardMeeting type="upcoming" />
+      <CardMeeting type="upcoming" />
+      <CardMeeting type="previous" />
+      <CardMeeting type="previous" />
+    </div>
+  );
 };
 export default CommonCallsLayout;

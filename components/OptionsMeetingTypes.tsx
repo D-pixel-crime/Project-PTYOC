@@ -25,6 +25,7 @@ const OptionsMeetingTypes = () => {
   const [callDetails, setCallDetails] = useState<Call>();
   const { toast } = useToast();
   const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${callDetails?.id}`;
+  const [isCopied, setIsCopied] = useState(false);
 
   const createMeeting = async () => {
     if (!client || !user) return;
@@ -112,7 +113,6 @@ const OptionsMeetingTypes = () => {
           onClose={() => setMeetingState(undefined)}
           title="Schedule a Meeting"
           handleClick={createMeeting}
-          className="w-full"
         >
           <div className="flex flex-col gap-2.5">
             <label className="text-base text-normal leading-[22px] text-white">
@@ -148,11 +148,14 @@ const OptionsMeetingTypes = () => {
           title="Meeting Created"
           className="text-center"
           buttonText="Copy Meeting Link"
-          buttonIcon="/icons/copy.svg"
+          buttonIcon={`/icons/${!isCopied ? "copy" : "tick"}.svg`}
           img="/icons/checked.svg"
           handleClick={() => {
+            setIsCopied(true);
             navigator.clipboard.writeText(meetingLink);
-            toast({ title: "Link Copied" });
+            setInterval(() => {
+              setIsCopied(false);
+            }, 2500);
           }}
         />
       )}
