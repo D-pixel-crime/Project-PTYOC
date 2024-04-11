@@ -30,12 +30,6 @@ const OptionsMeetingTypes = () => {
   const createMeeting = async () => {
     if (!client || !user) return;
 
-    const callId = crypto.randomUUID();
-
-    const call = client.call("default", callId);
-
-    if (!call) throw new Error("New call couldn't created !");
-
     try {
       if (!info.dateTime) {
         toast({
@@ -44,14 +38,19 @@ const OptionsMeetingTypes = () => {
         });
         return;
       }
+      const callId = crypto.randomUUID();
 
-      const callStartAt =
+      const call = client.call("default", callId);
+
+      if (!call) throw new Error("New call couldn't created !");
+
+      const startsAt =
         info.dateTime.toISOString() || new Date(Date.now()).toISOString();
       const description = info.description || "New Quick Meeting";
 
       await call.getOrCreate({
         data: {
-          starts_at: callStartAt,
+          starts_at: startsAt,
           custom: {
             description,
           },

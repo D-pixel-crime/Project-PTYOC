@@ -2,7 +2,7 @@ import { useUser } from "@clerk/nextjs";
 import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 import { useEffect, useState } from "react";
 
-const useAllCalls = () => {
+export const useAllCalls = () => {
   const [allCalls, setAllCalls] = useState<Call[]>();
   const [isLoading, setIsLoading] = useState(false);
   const client = useStreamVideoClient();
@@ -27,7 +27,7 @@ const useAllCalls = () => {
 
         setAllCalls(calls);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       } finally {
         setIsLoading(false);
       }
@@ -35,11 +35,12 @@ const useAllCalls = () => {
 
     fetchCalls();
   }, [client, user?.id]);
+
   const now = new Date();
 
   const previous = allCalls?.filter(
     ({ state: { startsAt, endedAt } }: Call) => {
-      return (startsAt && new Date(startsAt) < now) || endedAt;
+      return (startsAt && new Date(startsAt) < now) || !!endedAt;
     }
   );
 
@@ -51,5 +52,3 @@ const useAllCalls = () => {
 
   return { previous, upcoming, recordings: allCalls, isLoading };
 };
-
-export { useAllCalls };
