@@ -3,7 +3,7 @@ import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 import { useEffect, useState } from "react";
 
 export const useAllCalls = () => {
-  const [allCalls, setAllCalls] = useState<Call[]>();
+  const [allCalls, setAllCalls] = useState<Call[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const client = useStreamVideoClient();
   const { user } = useUser();
@@ -14,16 +14,20 @@ export const useAllCalls = () => {
 
       setIsLoading(true);
       try {
-        const { calls } = await client.queryCalls({
-          sort: [{ field: "starts_at", direction: -1 }],
-          filter_conditions: {
-            starts_at: { $exists: true },
-            $or: [
-              { created_by_user: user.id },
-              { members: { $in: [user.id] } },
-            ],
-          },
-        });
+        // const { calls } = await client.queryCalls({
+        //   sort: [{ field: "starts_at", direction: -1 }],
+        //   filter_conditions: {
+        //     starts_at: { $exists: true },
+        //     $or: [
+        //       { created_by_user: user.id },
+        //       { members: { $in: [user.id] } },
+        //     ],
+        //   },
+        // });
+
+        const { calls } = await client.queryCalls();
+
+        console.log(calls);
 
         setAllCalls(calls);
       } catch (error) {

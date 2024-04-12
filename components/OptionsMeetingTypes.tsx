@@ -9,6 +9,7 @@ import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 import { useToast } from "./ui/use-toast";
 import { Textarea } from "./ui/textarea";
 import ReactDatePicker from "react-datepicker";
+import Loader from "./Loader";
 
 const OptionsMeetingTypes = () => {
   const [meetingState, setMeetingState] = useState<
@@ -48,6 +49,8 @@ const OptionsMeetingTypes = () => {
         info.dateTime.toISOString() || new Date(Date.now()).toISOString();
       const description = info.description || "New Quick Meeting";
 
+      console.log(startsAt);
+
       await call.getOrCreate({
         data: {
           starts_at: startsAt,
@@ -74,6 +77,8 @@ const OptionsMeetingTypes = () => {
       });
     }
   };
+
+  if (!client || !user) return <Loader />;
 
   return (
     <section className="w-full grid grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-4">

@@ -5,6 +5,8 @@ import { Button } from "./ui/button";
 import { toast } from "./ui/use-toast";
 import { avatarImages } from "@/constants";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
+import { Ellipsis } from "lucide-react";
 
 interface propsCardMeeting {
   icon: string;
@@ -27,6 +29,8 @@ const CardMeeting = ({
   handleClick,
   link,
 }: propsCardMeeting) => {
+  const [isCopied, setIsCopied] = useState(false);
+
   return (
     <section className="flex min-h-[258px] w-full flex-col justify-between rounded-[14px] bg-dark-1 px-5 py-8 xl:max-w-[568px]">
       <article className="flex flex-col gap-5">
@@ -44,36 +48,40 @@ const CardMeeting = ({
             <Image
               key={index}
               src={img}
-              alt="attendees"
+              alt="participants"
               width={40}
               height={40}
               className={cn("rounded-full", { absolute: index > 0 })}
               style={{ top: 0, left: index * 28 }}
             />
           ))}
-          <div className="flex-center absolute left-[136px] size-10 rounded-full border-[5px] border-dark-3 bg-dark-4">
-            +5
+          <div className="flex-center absolute left-[136px] size-10 rounded-full border-[5px] border-blue-600 bg-blue-600">
+            <Ellipsis />
           </div>
         </div>
         {!isPreviousMeeting && (
           <div className="flex gap-2">
-            <Button onClick={handleClick} className="rounded bg-blue-1 px-6">
+            <Button
+              onClick={handleClick}
+              className="rounded bg-transparent border border-blue-500 text-blue-500 px-6 text-center hover:bg-blue-600 hover:text-white"
+            >
               {buttonIcon1 && (
                 <Image src={buttonIcon1} alt="feature" width={20} height={20} />
               )}
-              &nbsp; {buttonText}
+              {buttonIcon1 && <>&nbsp;</>} {buttonText}
             </Button>
             <Button
               onClick={() => {
                 navigator.clipboard.writeText(link);
-                toast({
-                  title: "Link Copied",
-                });
+                setIsCopied(true);
+                setInterval(() => {
+                  setIsCopied(false);
+                }, 2500);
               }}
-              className="bg-dark-4 px-6"
+              className="bg-blue-600 px-6"
             >
               <Image
-                src="/icons/copy.svg"
+                src={`/icons/${isCopied ? "tick" : "copy"}.svg`}
                 alt="feature"
                 width={20}
                 height={20}
