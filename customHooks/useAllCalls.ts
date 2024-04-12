@@ -27,9 +27,9 @@ export const useAllCalls = () => {
 
         const { calls } = await client.queryCalls();
 
-        console.log(calls);
+        const newCalls = calls.filter((eachCall) => eachCall.isCreatedByMe);
 
-        setAllCalls(calls);
+        setAllCalls(newCalls);
       } catch (error) {
         console.error(error);
       } finally {
