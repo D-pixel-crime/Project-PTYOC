@@ -36,7 +36,7 @@ const MeetingModal = ({
 }: meetingModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogTrigger>Open</DialogTrigger>
+      <DialogTrigger className="hidden">Open</DialogTrigger>
       <DialogContent className="flex w-fit px-6 py-9 text-white bg-dark-1">
         <div className="flex flex-col gap-6">
           {img && (
