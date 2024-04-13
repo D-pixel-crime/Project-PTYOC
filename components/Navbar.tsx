@@ -5,8 +5,8 @@ import { SignedIn, UserButton } from "@clerk/nextjs";
 
 const Navbar = () => {
   return (
-    <nav className="flex-between fixed z-50 w-full bg-dark-1 px-6 py-4 lg:px-10">
-      <Link href="/" className="flex items-center gap-1">
+    <nav className="flex-between lg:flex lg:items-center lg:justify-end lg:gap-8 fixed z-50 w-full bg-gray-300 px-6 py-4 lg:px-10">
+      <Link href="/" className="flex items-center gap-1 cursor-default">
         <Image
           src="/icons/logo.svg"
           width={32}
@@ -14,7 +14,7 @@ const Navbar = () => {
           alt="Logo"
           className="max-sm:size-10"
         />
-        <p className="font-extrabold text-white max-sm:hidden text-[26px]">
+        <p className="font-extrabold text-black max-sm:hidden text-[26px]">
           PTYOC
         </p>
       </Link>

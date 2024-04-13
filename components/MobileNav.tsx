@@ -26,7 +26,7 @@ const MobileNav = () => {
             className="cursor-pointer sm:hidden"
           />
         </SheetTrigger>
-        <SheetContent side="left" className="bg-dark-1 max-w-[250px]">
+        <SheetContent side="left" className="bg-gray-300 max-w-[250px]">
           <Link href="/" className="flex items-center gap-2">
             <Image
               src="/icons/logo.svg"
@@ -35,10 +35,10 @@ const MobileNav = () => {
               alt="Logo"
               className="max-sm:size-10"
             />
-            <p className="font-extrabold text-white text-xl">PTYOC</p>
+            <p className="font-extrabold text-black text-xl">PTYOC</p>
           </Link>
           <div className="flex h-[calc{100vh-72px}] flex-col justify-between overflow-hidden">
-            <section className="flex flex-col h-full gap-6 pt-16 text-white">
+            <section className="flex flex-col h-full gap-6 pt-16 text-back">
               {sideBarLinks.map((eachLink) => {
                 const isActive =
                   pathname === eachLink.route ||
