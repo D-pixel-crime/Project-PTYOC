@@ -17,10 +17,8 @@ const Table = ({
 }) => {
   return (
     <div className="flex flex-col items-start gap-2 xl:flex-row">
-      <h1 className="text-base font-medium text-cyan-400 lg:text-xl xl:min-w-32">
-        {title}
-      </h1>
-      <h1 className="truncate text-sm font-bold max-sm:max-w-[320px] lg:text-xl">
+      <h1 className="text-base font-bold lg:text-xl xl:min-w-32">{title}</h1>
+      <h1 className="truncate text-sm text-gray-700 font-medium max-sm:max-w-[320px] lg:text-xl">
         {description}
       </h1>
     </div>
@@ -30,10 +28,10 @@ const Table = ({
 const PrivateMeeting = () => {
   const { user } = useUser();
   const meetingId = user?.id;
-  const linkMeeting = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${meetingId}?personal=true`;
+  const linkMeeting = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${meetingId}?private=true`;
   const [isCopied, setIsCopied] = useState(false);
   const client = useStreamVideoClient();
-  const { currentLiveCall, isCallLoading } = useGetCallById(meetingId!);
+  const { currentLiveCall } = useGetCallById(meetingId!);
   const router = useRouter();
 
   const startPrivateRoom = async () => {
@@ -48,12 +46,12 @@ const PrivateMeeting = () => {
       });
     }
 
-    router.push(`/meeting/${meetingId}?personal=true`);
+    router.push(`/meeting/${meetingId}?private=true`);
   };
 
   return (
-    <section className="flex size-full flex-col gap-10 text-white">
-      <h1 className="text-3xl font-bold">Private Room</h1>
+    <section className="flex size-full flex-col gap-10 text-black bg-slate-300 rounded-xl px-10 py-7">
+      <h1 className="text-3xl font-extrabold">Private Room</h1>
       <div className="flex flex-col gap-8 xl:max-w-[900px]">
         <Table
           title="Topic"
@@ -70,7 +68,7 @@ const PrivateMeeting = () => {
           Start Meeting
         </Button>
         <Button
-          className="flex items-center gap-1.5 bg-blue-600 flex-center"
+          className="flex items-center gap-1.5 bg-blue-600 flex-center hover:bg-blue-600"
           onClick={() => {
             setIsCopied(true);
             navigator.clipboard.writeText(linkMeeting);

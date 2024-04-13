@@ -50,8 +50,8 @@ const MobileNav = () => {
                       href={eachLink.route}
                       className={`flex gap-2.5 items-center p-4 rounded-lg justify-start ${
                         isActive
-                          ? "bg-violet-600"
-                          : "hover:scale-110 transition hover:text-gray-400"
+                          ? "bg-purple-400"
+                          : "hover:scale-110 transition"
                       }`}
                     >
                       <Image

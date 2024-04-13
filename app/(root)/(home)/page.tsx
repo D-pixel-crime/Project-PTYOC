@@ -22,7 +22,9 @@ const Home = () => {
           <h2 className="flex flex-col items-start glassmorphism py-2 px-4 text-center text-base rounded-md font-normal w-fit">
             Upcoming Meeting :
             <span>
-              {(upcoming[0] as Call)?.state?.startsAt?.toLocaleString()}
+              {(
+                upcoming[upcoming.length - 1] as Call
+              )?.state?.startsAt?.toLocaleString()}
             </span>
           </h2>
           <div className="flex flex-col gap-2 items-start">

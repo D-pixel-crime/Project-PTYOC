@@ -32,13 +32,13 @@ const CardMeeting = ({
   const [isCopied, setIsCopied] = useState(false);
 
   return (
-    <section className="flex min-h-[258px] w-full flex-col justify-between rounded-[14px] bg-dark-1 px-5 py-8 xl:max-w-[568px]">
+    <section className="flex min-h-[258px] w-full flex-col justify-between rounded-[14px] bg-slate-300 px-5 py-8 xl:max-w-[568px]">
       <article className="flex flex-col gap-5">
         <Image src={icon} alt="upcoming" width={28} height={28} />
         <div className="flex justify-between">
           <div className="flex flex-col gap-2">
-            <h1 className="text-2xl font-bold">{title}</h1>
-            <p className="text-base font-normal">{date}</p>
+            <h1 className="text-2xl font-bold text-black">{title}</h1>
+            <p className="text-base font-normal text-black">{date}</p>
           </div>
         </div>
       </article>
@@ -78,7 +78,7 @@ const CardMeeting = ({
                   setIsCopied(false);
                 }, 2500);
               }}
-              className="bg-blue-600 px-6"
+              className="bg-blue-600 px-6 hover:bg-blue-600"
             >
               <Image
                 src={`/icons/${isCopied ? "tick" : "copy"}.svg`}
