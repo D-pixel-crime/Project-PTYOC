@@ -3,9 +3,10 @@
 import { useAllCalls } from "@/customHooks/useAllCalls";
 import { Call, CallRecording } from "@stream-io/video-react-sdk";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CardMeeting from "./CardMeeting";
 import Loader from "./Loader";
+import { toast } from "./ui/use-toast";
 
 const CommonCallsLayout = ({
   type,
@@ -15,6 +16,25 @@ const CommonCallsLayout = ({
   const { previous, upcoming, recordings, isLoading } = useAllCalls();
   const router = useRouter();
   const [callRecordings, setCallRecordings] = useState<CallRecording[]>([]);
+
+  useEffect(() => {
+    const fetchRecordings = async () => {
+      try {
+        const callData = await Promise.all(
+          recordings.map((meeting) => meeting.queryRecordings())
+        );
+
+        const finalRecordings = callData
+          .filter((call) => call.recordings.length > 0)
+          .flatMap((call) => call.recordings);
+
+        setCallRecordings(finalRecordings);
+      } catch (error) {
+        toast({ title: "Try Again Later", variant: "destructive" });
+      }
+    };
+    if (type === "recordings") fetchRecordings();
+  }, [type, recordings]);
 
   const getCalls = () => {
     switch (type) {
@@ -66,11 +86,12 @@ const CommonCallsLayout = ({
                 : "/icons/recordings.svg"
             }
             title={
-              (meeting as Call).state.custom.description.substring(0, 25) ||
+              (meeting as Call).state?.custom.description.substring(0, 25) ||
+              (meeting as CallRecording).filename?.substring(0, 20) ||
               "No Description"
             }
             date={
-              (meeting as Call).state.startsAt?.toLocaleString() ||
+              (meeting as Call).state?.startsAt?.toLocaleString() ||
               (meeting as CallRecording).start_time.toLocaleString()
             }
             isPreviousMeeting={type === "previous"}
