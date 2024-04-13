@@ -1,3 +1,5 @@
+"use client";
+
 import {
   CallControls,
   CallParticipantsList,
@@ -21,6 +23,7 @@ import { Button } from "./ui/button";
 import { useSearchParams } from "next/navigation";
 import EndCallForEveryone from "@/components/EndCallForEveryone";
 import Loader from "./Loader";
+import { useRouter } from "next/navigation";
 
 type CallLayoutOptions = "grid" | "focus-left" | "focus-right";
 
@@ -30,6 +33,7 @@ const MeetingRoom = () => {
   const isPrivateRoom = !!useSearchParams().get("private");
   const [layout, setLayout] = useState<CallLayoutOptions>("focus-left");
   const [showParticipants, setShowParticipants] = useState(false);
+  const router = useRouter();
 
   if (callingState !== CallingState.JOINED) return <Loader />;
 
@@ -61,7 +65,11 @@ const MeetingRoom = () => {
         </div>
       </div>
       <div className="flex-center flex-wrap w-screen max-w-screen fixed bottom-0 gap-5">
-        <CallControls />
+        <CallControls
+          onLeave={() => {
+            router.push("/");
+          }}
+        />
 
         <DropdownMenu>
           <div className="flex-center">

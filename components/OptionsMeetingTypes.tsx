@@ -10,6 +10,7 @@ import { useToast } from "./ui/use-toast";
 import { Textarea } from "./ui/textarea";
 import ReactDatePicker from "react-datepicker";
 import Loader from "./Loader";
+import { Input } from "./ui/input";
 
 const OptionsMeetingTypes = () => {
   const [meetingState, setMeetingState] = useState<
@@ -172,6 +173,24 @@ const OptionsMeetingTypes = () => {
         buttonText="Start Meeting"
         handleClick={createMeeting}
       />
+      <MeetingModal
+        isOpen={meetingState === "isJoinExistingMeeting"}
+        onClose={() => setMeetingState(undefined)}
+        title="Join An Existing Meeting"
+        className="text-center"
+        buttonText="Join Meeting"
+        handleClick={() => {
+          router.push(info.link);
+        }}
+      >
+        <Input
+          placeholder="Enter Meeting Link"
+          className="bg-dark-2 border border-white"
+          onChange={(e) => {
+            setInfo({ ...info, link: e.target.value });
+          }}
+        />
+      </MeetingModal>
     </section>
   );
 };

@@ -25,7 +25,9 @@ export const useAllCalls = () => {
         //   },
         // });
 
-        const { calls } = await client.queryCalls();
+        const { calls } = await client.queryCalls({
+          sort: [{ field: "starts_at", direction: -1 }],
+        });
 
         const newCalls = calls.filter((eachCall) => eachCall.isCreatedByMe);
 
