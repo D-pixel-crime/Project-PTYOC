@@ -93,6 +93,12 @@
   border: 2px solid rgb(214, 222, 222);
 }
 
+.homeCards {
+  background-color: rgba(226, 227, 227, 0.132);
+  backdrop-filter: blur(4px);
+  border: 2px solid rgb(214, 222, 222);
+}
+
 .main-background {
   background-image: url("/images/second-main.jpg");
   background-position: center;

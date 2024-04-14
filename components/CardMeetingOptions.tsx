@@ -19,8 +19,7 @@ const CardMeetingOptions = ({
 }: cardProps) => {
   return (
     <div
-      className={`px-4 py-6 w-full xl:max-w-[270px] min-h-[260px] rounded-lg cursor-pointer flex flex-col justify-between hover:scale-105 transition-transform`}
-      style={{ backgroundColor: cardColor }}
+      className={`px-4 py-6 w-full xl:max-w-[270px] min-h-[260px] rounded-lg cursor-pointer flex flex-col justify-between hover:scale-105 transition-transform homeCards`}
       onClick={handleClick}
     >
       <div className="flex-center glassmorphism size-12 rounded-md">
