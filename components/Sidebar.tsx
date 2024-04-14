@@ -9,7 +9,10 @@ const Sidebar = () => {
   const pathname = usePathname();
 
   return (
-    <section className="flex flex-col sticky left-0 top-0 w-fit bg-slate-300 p-6 pt-36 text-black max-sm:hidden lg:w-[264px]">
+    <section
+      className="flex flex-col sticky left-0 top-0 w-fit p-6 pt-36 text-black max-sm:hidden lg:w-[264px]"
+      style={{ backgroundColor: "#e2e3e3" }}
+    >
       <div className="flex flex-col gap-10">
         {sideBarLinks.map((eachLink) => {
           const isActive =

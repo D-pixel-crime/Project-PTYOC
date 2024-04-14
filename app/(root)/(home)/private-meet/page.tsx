@@ -50,7 +50,7 @@ const PrivateMeeting = () => {
   };
 
   return (
-    <section className="flex size-full flex-col gap-10 text-black bg-slate-300 rounded-xl px-10 py-7">
+    <section className="flex size-full flex-col gap-10 text-black cards rounded-xl px-10 py-7">
       <h1 className="text-3xl font-extrabold">Private Room</h1>
       <div className="flex flex-col gap-8 xl:max-w-[900px]">
         <Table
