@@ -120,18 +120,18 @@ const OptionsMeetingTypes = () => {
           handleClick={createMeeting}
         >
           <div className="flex flex-col gap-2.5">
-            <label className="text-base text-normal leading-[22px] text-white">
+            <label className="text-base text-normal leading-[22px] text-black">
               Description
             </label>
             <Textarea
-              className="border-none bg-dark-1"
+              className="border-none"
               onChange={(e) =>
                 setInfo({ ...info, description: e.target.value })
               }
             />
           </div>
           <div className="flex flex-col w-full gap-2.5">
-            <label className="text-base text-normal leading-[22px] text-white">
+            <label className="text-base text-normal leading-[22px] text-black">
               Select Date & Time
             </label>
             <ReactDatePicker
@@ -142,7 +142,7 @@ const OptionsMeetingTypes = () => {
               timeIntervals={15}
               timeCaption="time"
               dateFormat="MMMM d, yyyy h:mm aa"
-              className="w-full rounded bg-dark-1 p-2"
+              className="w-full rounded p-2"
             />
           </div>
         </MeetingModal>
@@ -185,7 +185,7 @@ const OptionsMeetingTypes = () => {
       >
         <Input
           placeholder="Enter Meeting Link"
-          className="bg-dark-2 border border-white"
+          className="focus-visible:ring-0"
           onChange={(e) => {
             setInfo({ ...info, link: e.target.value });
           }}

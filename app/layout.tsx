@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-import { dark, neobrutalism } from "@clerk/themes";
 import { Toaster } from "@/components/ui/toaster";
 import "@stream-io/video-react-sdk/dist/css/styles.css";
 import "react-datepicker/dist/react-datepicker.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "PTYOC",
@@ -22,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ClerkProvider>
-        <body className={`${inter.className} main-background scrollbar`}>
+        <body className={`main-background scrollbar overflow-x-hidden`}>
           {children}
           <Toaster />
         </body>

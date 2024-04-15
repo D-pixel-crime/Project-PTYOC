@@ -12,12 +12,12 @@ const Navbar = () => {
       <Link href="/" className="flex items-center gap-1 cursor-default">
         <Image
           src="/icons/logo.svg"
-          width={32}
-          height={32}
+          width={40}
+          height={40}
           alt="Logo"
           className="max-sm:size-10"
         />
-        <p className="font-extrabold text-black max-sm:hidden text-[26px]">
+        <p className="text-black font-extrabold max-sm:hidden text-[26px]">
           PTYOC
         </p>
       </Link>

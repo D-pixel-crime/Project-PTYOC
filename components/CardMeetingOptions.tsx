@@ -33,7 +33,7 @@ const CardMeetingOptions = ({
       </div>
       <div className="flex flex-col gap-1 glassmorphism2 p-2 rounded-lg">
         {/* <h1 className="font-bold text-white text-2xl">{title}</h1> */}
-        <p className="text-normal text-white text-center font-extrabold">
+        <p className="text-sm text-white text-center font-bold capitalize">
           {description}
         </p>
       </div>

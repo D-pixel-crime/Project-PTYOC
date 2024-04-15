@@ -31,7 +31,9 @@ const MeetingSetup = ({
 
   return (
     <div className="flex-center flex-col gap-3 h-screen w-full">
-      <h1 className="text-3xl font-bold">Setup</h1>
+      <h1 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500 bg-clip-text text-transparent">
+        Setup
+      </h1>
       <VideoPreview />
       <div className="flex-center h-16 gap-3">
         <label className="flex-center gap-2 font-bold">

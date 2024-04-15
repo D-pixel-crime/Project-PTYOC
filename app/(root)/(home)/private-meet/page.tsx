@@ -51,7 +51,9 @@ const PrivateMeeting = () => {
 
   return (
     <section className="flex size-full flex-col gap-10 text-black cards rounded-xl px-10 py-7">
-      <h1 className="text-3xl font-extrabold">Private Room</h1>
+      <h1 className="text-3xl lg:text-5xl font-extrabold py-2 bg-clip-text text-transparent w-fit bg-gradient-to-r from-red-500 via-amber-500 to-red-500">
+        Private Room
+      </h1>
       <div className="flex flex-col gap-8 xl:max-w-[900px]">
         <Table
           title="Topic"
@@ -62,13 +64,13 @@ const PrivateMeeting = () => {
       </div>
       <div className="flex gap-5">
         <Button
-          className="hover:bg-blue-600 flex-center border border-blue-600 bg-transparent text-blue-600 hover:text-white"
+          className="hover:bg-blue-600 flex-center border-2 font-medium border-blue-600 bg-transparent text-blue-600 hover:text-white"
           onClick={startPrivateRoom}
         >
           Start Meeting
         </Button>
         <Button
-          className="flex items-center gap-1.5 bg-blue-600 flex-center hover:bg-blue-600"
+          className="gap-1.5 bg-blue-600 flex-center hover:bg-blue-600"
           onClick={() => {
             setIsCopied(true);
             navigator.clipboard.writeText(linkMeeting);
