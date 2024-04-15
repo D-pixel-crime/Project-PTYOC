@@ -30,11 +30,11 @@ const MeetingSetup = ({
   }, [isMicCamOn, call?.camera, call?.microphone]);
 
   return (
-    <div className="flex-center flex-col gap-3 text-white h-screen w-full">
-      <h1 className="text-2xl font-bold">Setup</h1>
+    <div className="flex-center flex-col gap-3 h-screen w-full">
+      <h1 className="text-3xl font-bold">Setup</h1>
       <VideoPreview />
       <div className="flex-center h-16 gap-3">
-        <label className="flex-center gap-2 font-medium">
+        <label className="flex-center gap-2 font-bold">
           <input
             type="checkbox"
             checked={isMicCamOn}
@@ -45,7 +45,7 @@ const MeetingSetup = ({
         <DeviceSettings />
       </div>
       <Button
-        className="hover:bg-green-600 hover:text-white border border-green-600 text-green-600"
+        className="bg-green-600 text-white hover:border-2 font-medium hover:border-green-600 hover:text-green-600 hover:bg-transparent"
         onClick={(e) => {
           e.preventDefault();
           call.join();

@@ -87,28 +87,28 @@ const OptionsMeetingTypes = () => {
         option="add-meeting"
         title="New Meeting"
         description="Start an quick meeting"
-        cardColor="#8E44AD"
+        cardImg="/images/start-meeting.jpg"
         handleClick={() => setMeetingState("isStartMeeting")}
       />
       <CardMeetingOptions
         option="join-meeting"
         title="Join Meeting"
         description="Join a pre-existing meeting"
-        cardColor="#CB4335"
+        cardImg="/images/join-meeting.jpg"
         handleClick={() => setMeetingState("isJoinExistingMeeting")}
       />
       <CardMeetingOptions
         option="schedule"
         title="Schedule Meeting"
         description="Schedule a meeting"
-        cardColor="#239B56"
+        cardImg="/images/schedule.jpg"
         handleClick={() => setMeetingState("isSchedule")}
       />
       <CardMeetingOptions
         option="recordings"
         title="View Recordings"
         description="See your recordings"
-        cardColor="#B7950B"
+        cardImg="/images/recordings.jpg"
         handleClick={() => router.push("/recordings")}
       />
 
