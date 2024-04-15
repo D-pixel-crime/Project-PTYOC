@@ -94,9 +94,13 @@
 }
 
 .homeCards {
-  background-color: rgba(226, 227, 227, 0.132);
-  backdrop-filter: blur(4px);
-  border: 2px solid rgb(214, 222, 222);
+  background-color: rgba(226, 227, 227);
+  box-shadow: 2px 2px 2px 0px gray;
+}
+
+.homeCards:hover {
+  box-shadow: 3px 3px 2px 0px gray;
+  transition: 0.5s;
 }
 
 .main-background {
