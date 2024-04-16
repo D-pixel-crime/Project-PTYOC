@@ -16,11 +16,15 @@ export const useAllCalls = () => {
       try {
         const { calls } = await client.queryCalls({
           sort: [{ field: "starts_at", direction: -1 }],
+          filter_conditions: {
+            $or: [
+              { created_by_user_id: user?.id },
+              { members: { $in: [user?.id] } },
+            ],
+          },
         });
 
-        const newCalls = calls.filter((eachCall) => eachCall.isCreatedByMe);
-
-        setAllCalls(newCalls);
+        setAllCalls(calls);
       } catch (error) {
         console.error(error);
       } finally {

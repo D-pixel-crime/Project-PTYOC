@@ -42,6 +42,9 @@ const PrivateMeeting = () => {
       await newCall.getOrCreate({
         data: {
           starts_at: new Date().toISOString(),
+          custom: {
+            description: `${user.username}'s Private Meeting`,
+          },
         },
       });
     }

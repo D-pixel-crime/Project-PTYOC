@@ -35,7 +35,12 @@ const MeetingRoom = () => {
   const [showParticipants, setShowParticipants] = useState(false);
   const router = useRouter();
 
-  if (callingState !== CallingState.JOINED) return <Loader />;
+  if (callingState === CallingState.LEFT) router.push("/");
+  if (
+    callingState !== CallingState.JOINED &&
+    callingState !== CallingState.LEFT
+  )
+    return <Loader />;
 
   const ApplyCallLayout = () => {
     switch (layout) {
@@ -64,7 +69,7 @@ const MeetingRoom = () => {
           <CallParticipantsList onClose={() => setShowParticipants(false)} />
         </div>
       </div>
-      <div className="flex-center flex-wrap w-screen max-w-screen fixed bottom-0 gap-5">
+      <div className="flex-center flex-wrap w-screen max-sm:mb-3 max-w-screen fixed bottom-0 gap-5">
         <CallControls
           onLeave={() => {
             router.push("/");
