@@ -28,7 +28,7 @@ const Table = ({
 const PrivateMeeting = () => {
   const { user } = useUser();
   const meetingId = user?.id;
-  const linkMeeting = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${meetingId}?private=true`;
+  const linkMeeting = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${meetingId}`;
   const [isCopied, setIsCopied] = useState(false);
   const client = useStreamVideoClient();
   const { currentLiveCall } = useGetCallById(meetingId!);
@@ -46,7 +46,7 @@ const PrivateMeeting = () => {
       });
     }
 
-    router.push(`/meeting/${meetingId}?private=true`);
+    router.push(`/meeting/${meetingId}`);
   };
 
   return (
