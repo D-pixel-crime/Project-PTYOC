@@ -3,7 +3,7 @@
 PTYOC is a full-stack video conferencing website that allows users to create new quick meetings, join existing meetings, schedule meetings, and record meetings. Built using Next.js, Tailwind CSS, Shadcn, GetStream.io, Clerk, and Lucide React, PTYOC provides a seamless and feature-rich platform for virtual collaboration.
 
 ## Access Online 🌐
-![](https://project-ptyoc.vercel.app)
+![project-ptyoc.vercel.app](https://project-ptyoc.vercel.app)
 
 ## Features 🚀
 
