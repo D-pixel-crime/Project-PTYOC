@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PTYOC 📹
 
-## Getting Started
+PTYOC is a full-stack video conferencing website that allows users to create new quick meetings, join existing meetings, schedule meetings, and record meetings. Built using Next.js, Tailwind CSS, Shadcn, GetStream.io, Clerk, and Lucide React, PTYOC provides a seamless and feature-rich platform for virtual collaboration.
 
-First, run the development server:
+## Access Online 🌐
+- *project-ptyoc.vercel.app*
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Features 🚀
+
+- **Quick Meetings**: Create new quick meetings on the fly for instant collaboration.
+- **Join Existing Meetings**: Join existing meetings using unique meeting IDs shared by other users.
+- **Schedule Meetings**: Schedule future meetings with date and time.
+- **Meeting Recording**: Record meetings for future reference or sharing.
+- **Upcoming Page**: View scheduled meetings.
+- **Previous Page**: View past meetings.
+- **Recordings Page**: Explore a library of recorded meetings for playback.
+- **Private Meet Page**: Join private meetings with unique preset meeting IDs that don't show up on the previous page.
+
+## Technologies Used 🛠️
+
+- **Next.js**: React framework for building server-rendered and statically-generated web applications.
+- **Tailwind CSS**: Utility-first CSS framework for designing responsive and customizable user interfaces.
+- **Shadcn**: Simplified API for integrating video conferencing features into web applications.
+- **GetStream.io**: Platform for building scalable and personalized activity feeds and chat.
+- **Clerk**: Authentication and user management system for secure user sign-in.
+- **Lucide React**: SVG icon library for adding visual elements to the user interface.
+
+## Installation and Setup 🔧
+
+1. Clone the repository:
+
+```
+git clone https://github.com/D-pixel-crime/Project-PTYOC.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Navigate to the project directory:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+cd "Project-PTYOC"
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. Install dependencies:
 
-## Learn More
+```
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Configure environment variables:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   - Create a `.env` file in the root directory.
+   - Define environment variables including API keys, credentials, etc.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+5. Start the development server:
 
-## Deploy on Vercel
+```
+npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+6. Access the website by visiting `http://localhost:3000` in your web browser.
