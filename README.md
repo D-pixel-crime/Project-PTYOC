@@ -14,9 +14,9 @@ PTYOC is a full-stack video conferencing website that allows users to create new
 - **Upcoming Page**: View scheduled meetings.
 - **Previous Page**: View past meetings.
 - **Recordings Page**: Explore a library of recorded meetings for playback.
-- **Private Meet Page**: Join private meetings with unique preset meeting IDs that don't show up on the previous page.
+- **Private Meet Page**: Join private meetings with unique preset meeting IDs that don't show up on the previous meetings page.
 
-## Technologies Used 🛠️
+## Tech Stack 🛠️
 
 - **Next.js**: React framework for building server-rendered and statically-generated web applications.
 - **Tailwind CSS**: Utility-first CSS framework for designing responsive and customizable user interfaces.
