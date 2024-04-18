@@ -20,7 +20,7 @@ PTYOC is a full-stack video conferencing website that allows users to create new
 
 - **Next.js**: React framework for building server-rendered and statically-generated web applications.
 - **Tailwind CSS**: Utility-first CSS framework for designing responsive and customizable user interfaces.
-- **Shadcn**: Simplified API for integrating video conferencing features into web applications.
+- **Shadcn**: Open source customizable components library.
 - **GetStream.io**: Platform for building scalable and personalized activity feeds and chat.
 - **Clerk**: Authentication and user management system for secure user sign-in.
 - **Lucide React**: SVG icon library for adding visual elements to the user interface.
